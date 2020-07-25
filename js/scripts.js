@@ -1,11 +1,11 @@
 
 // Menu Mobile
-document.getElementById("hamburguer-icon").onclick = function(){
-    document.getElementById("sliding-header-menu-outer").style.right = "0";
-    document.getElementById("sliding-header-menu-close-button")
+document.getElementById("hamburguer-icon").onclick = function () {
+  document.getElementById("sliding-header-menu-outer").style.right = "0";
+  document.getElementById("sliding-header-menu-close-button")
 }
 
-document.getElementById("sliding-header-menu-close-button").onclick = function(){
+document.getElementById("sliding-header-menu-close-button").onclick = function () {
   document.getElementById("sliding-header-menu-outer").style.right = "-320px";
 }
 
@@ -19,9 +19,27 @@ var aboutUs = {
   "Valores": "<ul><li>Comprometimento</li><li>Inovação</li><li>Ética profissional</li><li>Superação dos resultados</li><li>Melhoria contínua</li></ul>"
 };
 
-var unseletected_color = "#646872";
-var seletected_color = "#2A2D34";
+var unselected_color = "#646872";
+var selected_color = "#2A2D34";
 
+var about_tags = document.getElementsByClassName("single-tab");
+
+for (var i = 0; i < about_tags.length; i++) {
+  about_tags[i].onclick = function () {
+
+    for(var a = 0; a < about_tags.length; a++){
+      about_tags[a].style['background-color'] = unselected_color;
+      about_tags[a].style['font-weight'] = "normal";
+    }
+
+    this.style['background-color'] = selected_color;
+    this.style['font-weight'] = "bold";
+
+    let selecionado = this.innerHTML;
+
+    document.getElementById("box-text").innerHTML = aboutUs[selecionado];
+  }
+}
 
 
 // Slider de serviços
@@ -41,7 +59,7 @@ var our_services = [
     'title': 'Marketing Digital',
     'text': 'Nunc et quam in magna vehicula sollicitudin. Aliquam erat volutpat. Maecenas dolor mi, aliquet ac quam aliquet, condimentum dictum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus.'
   }
-  
+
 ];
 
 
@@ -49,8 +67,7 @@ var our_services = [
 
 
 
-  
-   
 
 
-   
+
+
